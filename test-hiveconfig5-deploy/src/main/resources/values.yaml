@@ -1,8 +1,8 @@
 spec:
   destination:
     server: https://kubernetes.default.svc
-  targetRevision: https://github.com/jaebchoi/test-hiveconfig5
-  repo: test.org/test.git
+  targetRevision: main
+  repo:  https://github.com/jaebchoi/test-hiveconfig5
   helm:
     valueFiles:
       - values.yaml
