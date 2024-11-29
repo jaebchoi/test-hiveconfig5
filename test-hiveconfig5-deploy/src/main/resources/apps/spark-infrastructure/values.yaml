@@ -24,8 +24,8 @@ aissemble-thrift-server-chart:
 
   sparkConf: |
     spark.hadoop.fs.s3a.endpoint=http://s3-local:4566
-    spark.hadoop.fs.s3a.access.key=${env:AWS_ACCESS_KEY_ID}
-    spark.hadoop.fs.s3a.secret.key=${env:AWS_SECRET_ACCESS_KEY}
+    spark.hadoop.fs.s3a.access.key=$getConfigValue(groupName=aws-credentials;propertyName=AWS_SECRET_ACCESS_KEY)
+    spark.hadoop.fs.s3a.secret.key=$getConfigValue(groupName=aws-credentials;propertyName=AWS_SECRET_ACCESS_KEY)
     spark.hadoop.fs.s3.impl=org.apache.hadoop.fs.s3a.S3AFileSystem
     spark.hive.server2.thrift.port=10000
     spark.hive.server2.thrift.http.port=10001
@@ -80,8 +80,8 @@ aissemble-hive-metastore-service-chart:
           value: $getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
           description: Password to use against metastore database
         - name: metastore.warehouse.dir
-          value: s3a://spark-infrastructure/warehouse
+          value: $getConfigValue(groupName=aws-credentials;propertyName=AWS_ACCESS_KEY_ID)
         - name: fs.s3a.endpoint
-          value: http://s3-local:4566
+          value: $getConfigValue(groupName=aws-credentials;propertyName=AWS_SECRET_ACCESS_KEY)
         - name: fs.s3a.path.style.access
           value: true
