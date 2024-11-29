@@ -7,5 +7,10 @@
 {{- define "invocationservice.configmap" -}}
 metadata:
   name: spark-application-values-files
-data: {}
+  labels:
+    aissemble-configuration-store: enabled
+data:
+  messaging.properties: |-
+    username=$getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
+    password=$getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
 {{- end -}}
