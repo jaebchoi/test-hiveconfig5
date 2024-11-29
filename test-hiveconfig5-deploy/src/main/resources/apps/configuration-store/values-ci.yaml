@@ -17,4 +17,4 @@ aissemble-configuration-store-chart:
   # Example: '/mnt/c' or '/mnt/wsl/rancher-desktop'
   configurationVolume:
     storageType: "local"
-    volumePathOnNode: "/Users/jameschoi/Documents/GitHub/test-hiveconfig5/test-hiveconfig5-deploy/src/main/resources/configurations"
+    volumePathOnNode: "/Users/jameschoi/Documents/GitHub/test-hiveconfig51/test-hiveconfig5-deploy/src/main/resources/configurations"
