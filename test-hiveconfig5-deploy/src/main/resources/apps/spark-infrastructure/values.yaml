@@ -14,6 +14,9 @@ aissemble-thrift-server-chart:
       - org.apache.hadoop:hadoop-aws:3.3.4
 
   deployment:
+    metadata:
+      labels:
+        aissemble-configuration-store: enabled
     envFromSecret:
       AWS_ACCESS_KEY_ID:
         secretName: remote-auth-config
@@ -70,6 +73,9 @@ aissemble-hive-metastore-service-chart:
             key: AWS_ACCESS_KEY_ID
 
   configMap:
+    metadata:
+      labels:
+        aissemble-configuration-store: enabled
     metastoreServiceConfig:
       properties:
         - name: javax.jdo.option.ConnectionUserName
