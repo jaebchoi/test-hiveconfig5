@@ -37,5 +37,5 @@ dependencies:
     repository: oci://ghcr.io/boozallen
   - name: aissemble-hive-metastore-service-chart
     version: 1.11.0-SNAPSHOT
-    repository: oci://ghcr.io/boozallen
+    repository: oci://ghcr.io/jaebchoi
 
