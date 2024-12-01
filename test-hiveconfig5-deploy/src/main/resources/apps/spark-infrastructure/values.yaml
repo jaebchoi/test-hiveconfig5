@@ -73,9 +73,6 @@ aissemble-hive-metastore-service-chart:
             key: AWS_ACCESS_KEY_ID
 
   configMap:
-    metadata:
-      labels:
-        aissemble-configuration-store: enabled
     metastoreServiceConfig:
       properties:
         - name: javax.jdo.option.ConnectionUserName
