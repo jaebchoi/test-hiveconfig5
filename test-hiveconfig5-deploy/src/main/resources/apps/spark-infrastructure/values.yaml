@@ -76,15 +76,15 @@ aissemble-hive-metastore-service-chart:
     metastoreServiceConfig:
       properties:
         - name: javax.jdo.option.ConnectionUserName
-          value: $getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
+          value: hive
           description: Username to use against metastore database
           # NB: UCS
         - name: javax.jdo.option.ConnectionPassword
-          value: $getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
+          value: hive
           description: Password to use against metastore database
         - name: metastore.warehouse.dir
-          value: $getConfigValue(groupName=aws-credentials;propertyName=AWS_ACCESS_KEY_ID)
+          value: s3a://spark-infrastructure/warehouse
         - name: fs.s3a.endpoint
-          value: $getConfigValue(groupName=aws-credentials;propertyName=AWS_SECRET_ACCESS_KEY)
+          value: http://s3-local:4566
         - name: fs.s3a.path.style.access
           value: true
