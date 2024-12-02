@@ -71,12 +71,14 @@ aissemble-hive-metastore-service-chart:
           secretKeyRef:
             name: remote-auth-config
             key: AWS_ACCESS_KEY_ID
-
+  metadata:
+    labels:
+      aissemble-configuration-store: enabled
   configMap:
     metastoreServiceConfig:
       properties:
         - name: javax.jdo.option.ConnectionUserName
-          value: hive
+          value: $getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
           description: Username to use against metastore database
           # NB: UCS
         - name: javax.jdo.option.ConnectionPassword
