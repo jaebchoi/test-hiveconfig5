@@ -6,10 +6,6 @@ app:
   name: 'hive-metastore-service'
   # Sets the labels for app.kubernetes.io/version. Default is Chart.appVersion
   version: ''
-aissemble-hive-metastore-service-chart:
-  metadata:
-    labels:
-      aissemble-configuration-store: enabled
 
 replicaCount: 1
 hostname: hive-metastore-service
