@@ -7,7 +7,9 @@ app:
   # Sets the labels for app.kubernetes.io/version. Default is Chart.appVersion
   version: ''
 aissemble-hive-metastore-service-chart:
-
+  metadata:
+    labels:
+      aissemble-configuration-store: enabled
 
 replicaCount: 1
 hostname: hive-metastore-service
@@ -15,9 +17,7 @@ image:
   name: boozallen/aissemble-hive-service
   imagePullPolicy: IfNotPresent
   dockerRepo: "ghcr.io/"
-metadata:
-  labels:
-    aissemble-configuration-store: enabled
+
 mysql:
   enabled: true
   fullnameOverride: "hive-metastore-db"
