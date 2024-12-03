@@ -49,6 +49,9 @@ aissemble-thrift-server-chart:
      </configuration>
 
 aissemble-hive-metastore-service-chart:
+  metadata:
+    labels:
+      aissemble-configuration-store: enabled
   mysql:
     auth:
       replicationPassword: hive

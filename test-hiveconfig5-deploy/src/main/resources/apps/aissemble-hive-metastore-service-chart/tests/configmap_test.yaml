@@ -8,10 +8,7 @@ tests:
           of: ConfigMap
       - equal:
           path: data
-          value:
-            messaging.properties: |-
-              username=$getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
-              password=$getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
+          value: 
             metastore-site.xml: |
               <configuration>
                 <property>
@@ -36,6 +33,16 @@ tests:
                   <value>jdbc:mysql://hive-metastore-db:3306/metastore?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false</value>
                   <description>JDBC connect string for a JDBC metastore</description>
                 </property>
+                <property>
+                  <name>javax.jdo.option.ConnectionUserName</name>
+                  <value>$getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)</value>
+                  <description>Username to use against metastore database</description>
+                </property>
+                <property>
+                  <name>javax.jdo.option.ConnectionPassword</name>
+                  <value>$getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)</value>
+                  <description>Password to use against metastore database</description>
+                </property>
               </configuration>
   - it: Should override default properties appropriately
     set:
@@ -47,10 +54,7 @@ tests:
     asserts:
       - equal:
           path: data
-          value:
-            messaging.properties: |-
-              username=$getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
-              password=$getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
+          value: 
             metastore-site.xml: |
               <configuration>
                 <property>
@@ -71,10 +75,7 @@ tests:
     asserts:
       - equal:
           path: data
-          value:
-            messaging.properties: |-
-              username=$getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
-              password=$getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
+          value: 
             metastore-site.xml: |
               <configuration>
                 <property>
@@ -98,6 +99,16 @@ tests:
                   <name>javax.jdo.option.ConnectionURL</name>
                   <value>jdbc:mysql://hive-metastore-db:3306/metastore?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false</value>
                   <description>JDBC connect string for a JDBC metastore</description>
+                </property>
+                <property>
+                  <name>javax.jdo.option.ConnectionUserName</name>
+                  <value>$getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)</value>
+                  <description>Username to use against metastore database</description>
+                </property>
+                <property>
+                  <name>javax.jdo.option.ConnectionPassword</name>
+                  <value>$getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)</value>
+                  <description>Password to use against metastore database</description>
                 </property>
                 <property>
                   <name>propertyName1</name>

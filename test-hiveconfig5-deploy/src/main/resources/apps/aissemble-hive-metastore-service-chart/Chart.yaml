@@ -1,15 +1,12 @@
 apiVersion: v2
-name: aissemble-hive-metastore-service-chart
-description: A Helm chart for hive-metastore-service
-# Version is automatically set by the plugin so this is only a placeholder
-version: 1.11.0-SNAPSHOT
-# App Version is automatically set by the plugin so this is only a placeholder
 appVersion: 1.11.0-SNAPSHOT
-sources:
-  - https://github.com/boozallen/aissemble
-
 dependencies:
-  - name: mysql
-    version: 11.1.2
-    repository: oci://registry-1.docker.io/bitnamicharts
-    condition: mysql.enabled
+- condition: mysql.enabled
+  name: mysql
+  repository: oci://registry-1.docker.io/bitnamicharts
+  version: 11.1.2
+description: A Helm chart for hive-metastore-service
+name: aissemble-hive-metastore-service-chart
+sources:
+- https://github.com/boozallen/aissemble
+version: 1.11.0-SNAPSHOT
