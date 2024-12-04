@@ -15,8 +15,6 @@ image:
   dockerRepo: "ghcr.io/"
 
 mysql:
-  commonLabels:
-    aissemble-configuration-store: enabled
   enabled: true
   fullnameOverride: "hive-metastore-db"
   auth:
