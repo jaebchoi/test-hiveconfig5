@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/instance: {{ .Values.app.name | default .Chart.Name }}
     app.kubernetes.io/name: {{ .Values.app.name | default .Chart.Name }}
+    aissemble-configuration-store: enabled
   name: {{ .Values.app.name | default .Chart.Name }}
 spec:
   replicas: {{ .Values.replicaCount | default 1 }}
