@@ -24,8 +24,8 @@ mysql:
     database: "metastore"
     # Note: Changing these values requires removal of the `hive-metastore-db-0` PVC, or manual modification of the
     # persisted database.
-    username: $getConfigValue(groupName=hive;propertyName=HIVE_USERNAME)
-    rootPassword: $getConfigValue(groupName=hive;propertyName=HIVE_PASSWORD)
+    username: hive
+    rootPassword: hive
 
 hive:
   dbType: "mysql"
